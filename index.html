@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rock Paper Scissor Lizard Spock</title>
+<style>
+img{width:400px; height:400px;}
+#showInput{color:red;}
+#macOutput{color:blue;}
+#result1{color:green;}
+button{color:red;}
+</style>
+</head>
+<body>
+<p>Select One:</p>
+<button type="button" onclick="startMac(0);">Rock</button>
+<button type="button" onclick="startMac(1);">Paper</button>
+<button type="button" onclick="startMac(2);">Scissor</button>
+<button type="button" onclick="startMac(3);">Lizard</button>
+<button type="button" onclick="startMac(4);">Spock</button>
+<p id="showInput"></p>
+<p id="macOutput"></p>
+</br>
+<p id="result1"></p>
+</br>
+<p>Game Instructions:</p>
+<img src="http://www.hilosparabordar.com/wp-content/uploads/2012/05/piedra_papel_tijera.jpg">
+<script>
+function startMac (x) {
+var choices = ["rock", "paper", "scissor", "lizard", "spock"];
+var y = Math.floor(Math.random() * 5);
+var macChoice = choices[y];
+var userChoice = choices[x];
+document.getElementById("showInput").innerHTML = "You chose: " + userChoice + ".";
+document.getElementById("macOutput").innerHTML = "Machine chose: " + macChoice + ".";
+var result;
+var result1 = ["You lost.", "You won.", "It was a tie."];
+var truth = ((x==0 && (y==2 || y==3)) || (x==1 && (y==0 || y==4)) || (x==2 && (y==1 || y==3)) || (x==3 && (y==1 || y==4)) || (x==4 && (y==0 || y==2))) ;
+if (x == y) {
+result = result1[2];
+} else if (truth == true) {
+result = result1[1];
+} else {
+result = result1[0];
+}
+document.getElementById("result1").innerHTML = result;
+console.log(truth);
+}
+</script>
+</body>
+</html>
